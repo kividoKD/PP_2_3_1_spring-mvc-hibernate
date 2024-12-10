@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список пользователей</title>
+</head>
+<body>
+<div>
+    <table>
+        <thead>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Email</th>
+        </thead>
+
+        <tbody>
+            <tr th:each="user, stat : ${users}"  th:if="${stat.count} <= ${count} or ${count} >= 5">
+                <td th:text="${user.getFirstName()}"></td>
+                <td th:text="${user.getLastName()}"></td>
+                <td th:text="${user.getEmail()}"></td>
+                <td><a th:href="@{/users/{id}(id=${user.getId()})}" th:text="Посмотреть"></a></td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/users/new">Добавить пользователя</a>
+    <a href="/">Home page</a>
+</div>
+</body>
+</html>
