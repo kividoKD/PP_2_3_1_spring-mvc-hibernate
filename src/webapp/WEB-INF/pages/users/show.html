@@ -11,8 +11,13 @@
 <p th:text="${user.getEmail()}"></p>
 
 <a th:href="@{/users/{id}/edit(id=${user.getId()})}">Изменить</a>
-<form th:method="DELETE" th:action="@{/users/{id}/edit(id=${user.getId()})}">
-    <input type="submit" value="Delete"/>
+<!--<form th:method="POST" th:action="@{/users/{id}/edit(id=${user.getId()})}">-->
+<!--    <input type="submit" value="Delete"/>-->
+<!--</form>-->
+
+<form method="get" th:action="@{/users/delete/{id}(id=${user.getId()})}" th:object="${user}">
+    <input type="hidden" th:field="*{id}"/>
+    <button type="submit">Delete User</button>
 </form>
 </body>
 </html>
