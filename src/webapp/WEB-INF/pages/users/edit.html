@@ -2,24 +2,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Update user</title>
+    <title>Изменить пользователя</title>
 </head>
 <body>
-
+<b>Изменить пользователя</b>
+<br>
 <form action="#"
       th:action="@{/users/{id}(id=${user.getId()})}"
       th:object="${user}"
       method="post">
     <label for="firstname">Name</label>
     <input type="text" th:field="*{firstName}" id="firstname" placeholder="Name">
-
+    <br>
     <label for="lastname">Name</label>
     <input type="text" th:field="*{lastName}" id="lastname" placeholder="Name">
-
+    <br>
     <label for="mail">Email</label>
     <input type="text" th:field="*{email}" id="mail" placeholder="Email">
-
-    <input type="submit" value="Update User">
+    <br>
+    <input type="submit" value="Сохранить">
 </form>
 
 </body>
